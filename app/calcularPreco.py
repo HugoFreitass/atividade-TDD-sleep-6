@@ -6,5 +6,13 @@ def calculate_price(produtos: list[tuple[int, int]]) -> float:
     """
     if not produtos:
         return 0.0
+    
+    for [price, quantidade] in produtos:
+        if(price < 0):
+            raise ValueError("Preco não pode ser negativo")
+        if(quantidade < 1):
+            raise ValueError("Quantidade deve ser maior que 0")
+
+
 
     return -1.0  # Falhou
