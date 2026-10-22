@@ -18,6 +18,12 @@ class Cart:
         self.items: list[Item] = []
 
     def add_item(self, price: float, quantity: int) -> None:
+        if price < 0:
+            raise ValueError("Preco não pode ser negativo")
+
+        if quantity <= 0:
+            raise ValueError("Quantidade deve ser maior que 0")
+        
         self.items.append(Item(price, quantity))
 
     def subtotal(self) -> float:
